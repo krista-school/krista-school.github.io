@@ -1,5 +1,5 @@
 var systemOnlineHome = false;
-var systemOnlineMgmt = true;
+var systemOnlineMgmt = false;
 var systemOnlineWow = false;
 var hackcheck = false;
 var fix = false;

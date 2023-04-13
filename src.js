@@ -9,8 +9,9 @@ var security = false;
 
 $('body').terminal({
     vihje: function(){
+        this.echo("Olet organisaation tietoturvavastaava.\nOrganisaation tietoverkossa on havaittu epäilyttävää toimintaa. Tehtävänäsi on yhdistää\ntietoverkkoon ja ratkaista ongelmatilanne.")
         if(systemOnlineHome == false && systemOnlineMgmt == false && systemOnlineWow == false){
-            this.echo("help-komento esittelee ls- ja cat-komennot. Tehtävänä on yhdistää tietoturvahallinnon verkkoyhteyteen. Tarvittavat tiedot voidaan lukea\ncat-komennolla tiedostoista.\n")
+            this.echo("help-komento esittelee ls- ja cat-komennot. Tehtävänä on yhdistää tietoturvahallinnon verkkoyhteyteen. Tarvittavat tiedot voidaan lukea cat-komennolla tiedostoista.\n")
         }
         else if(systemOnlineMgmt == true && hackcheck == false && fix == false && security == false && send_msg == false && new_msg == false){
             this.echo("HackCheckPro ohjelma saattaa löytää jotain. Kirjoita HackCheckPro ja paina Enter.")

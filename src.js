@@ -46,7 +46,7 @@ $('body').terminal({
             this.echo("PELIJUTUT:\npeli_strategia_ohjeet.exe\nWorldOfWarcraft\nDiscord\n")
         }
         if (systemOnlineMgmt == true && hackcheck == false){
-            this.echo("HOME:\nKorjausohje\nEmail\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\n\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nEmail\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")
         }
         if (hackcheck == true && fix == false){
             this.echo("HOME:\nKorjausohje\nEmail\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")

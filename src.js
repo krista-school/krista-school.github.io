@@ -9,7 +9,6 @@ var security = false;
 
 $('body').terminal({
     vihje: function(){
-        this.echo("Olet organisaation tietoturvavastaava.\nOrganisaation tietoverkossa on havaittu epäilyttävää toimintaa. Tehtävänäsi on yhdistää\ntietoverkkoon ja ratkaista ongelmatilanne.")
         if(systemOnlineHome == false && systemOnlineMgmt == false && systemOnlineWow == false){
             this.echo("help-komento esittelee ls- ja cat-komennot. Tehtävänä on yhdistää tietoturvahallinnon verkkoyhteyteen. Tarvittavat tiedot voidaan lukea cat-komennolla tiedostoista.\n")
         }
@@ -421,7 +420,7 @@ $('body').terminal({
           });
     }
 },{
-    greetings: 'SYSTEM CONTROL\nhelp -komennolla lisäohjeita.\nvihje -komennolla vinkki.\nKirjoita komento ja paina Enter.\n',
+    greetings: 'SYSTEM CONTROL\nhelp -komennolla lisäohjeita.\nvihje -komennolla vinkki.\nKirjoita komento ja paina Enter.\nOlet organisaation tietoturvavastaava.\nOrganisaation tietoverkossa on havaittu epäilyttävää toimintaa. Tehtävänäsi on yhdistää tietoverkkoon ja ratkaista ongelmatilanne.',
     prompt: 'offline > ',
     checkArity: false
 });

@@ -30,7 +30,7 @@ $('body').terminal({
     },
     help: function() {
         if (systemOnlineMgmt == true || systemOnlineHome == true || systemOnlineWow == true){
-            this.echo("exec - Suorita ohjelma. Käyttö: exec ohjelmannimi\nexitNetwork - Poistu nykyisestä tietoverkosta offline-tilaan\n")
+            this.echo("exitNetwork - Poistu nykyisestä tietoverkosta offline-tilaan\n")
         }
         this.echo("ls - Listaa tiedostot\ncat - Näyttää tiedostoon kirjoitetun sisällön. Käyttö: cat tiedosto.txt\nclear - Tyhjentää komentohistorian\n")
     },

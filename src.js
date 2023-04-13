@@ -372,52 +372,54 @@ $('body').terminal({
             prompt: 'Valitse toiminto (1-4): '
           });
         },
-    SecuritySetup: function(what) {
-        
-        var openPorts = {
-            80: true,
-            1112: false,
-            3444: true
-          };
-          
-          this.echo("=== Security Setup ===");
-          this.echo("1. Hallinnoi liikennettä");
-          this.echo("2. Palomuuri");
-          this.echo("3. Tarkista levy");
-        
-          this.push(function(command) {
-            if (command === "1") {
-              this.echo("=== Avoimet Portit ===");
-              for (var port in openPorts) {
-                this.echo(port + ": " + (openPorts[port] ? "ON" : "OFF"));
-              }
-              
-              this.push(function(portCommand) {
-                if (openPorts.hasOwnProperty(portCommand)) {
-                  openPorts[portCommand] = !openPorts[portCommand];
-                  this.echo(portCommand + " toggled " + (openPorts[portCommand] ? "ON" : "OFF"))
-                  this.echo("DEMO SUORITETTU. ONNEKSI OLKOON! (salainen avain: kyberturvallisuuden_tulevaisuus)")
+    if(new_msg==true){
+        SecuritySetup: function(what) {
+
+            var openPorts = {
+                80: true,
+                1112: false,
+                3444: true
+              };
+
+              this.echo("=== Security Setup ===");
+              this.echo("1. Hallinnoi liikennettä");
+              this.echo("2. Palomuuri");
+              this.echo("3. Tarkista levy");
+
+              this.push(function(command) {
+                if (command === "1") {
+                  this.echo("=== Avoimet Portit ===");
+                  for (var port in openPorts) {
+                    this.echo(port + ": " + (openPorts[port] ? "ON" : "OFF"));
+                  }
+
+                  this.push(function(portCommand) {
+                    if (openPorts.hasOwnProperty(portCommand)) {
+                      openPorts[portCommand] = !openPorts[portCommand];
+                      this.echo(portCommand + " toggled " + (openPorts[portCommand] ? "ON" : "OFF"))
+                      this.echo("DEMO SUORITETTU. ONNEKSI OLKOON! (salainen avain: kyberturvallisuuden_tulevaisuus)")
+                    } else {
+                      this.error("Väärä porttivalinta. Kokeile uudelleen.");
+                    }
+                    this.pop();
+                    this.pop();
+                  }, {
+                    prompt: "Mitä porttia haluat hallinnoida : "
+                  });
+
+                } else if (command === "2") {
+                  // Palomuuri logic
+                  this.echo("Palomuuri toiminnallinen.");
+                } else if (command === "3") {
+                  // Tarkista levy logic
+                  this.echo("Levyt kunnossa.");
                 } else {
-                  this.error("Väärä porttivalinta. Kokeile uudelleen.");
+                  this.error("Invalid option. Please try again.");
                 }
-                this.pop();
-                this.pop();
               }, {
-                prompt: "Mitä porttia haluat hallinnoida : "
+                prompt: "Valitse toiminto (1, 2 tai 3): "
               });
-        
-            } else if (command === "2") {
-              // Palomuuri logic
-              this.echo("Palomuuri toiminnallinen.");
-            } else if (command === "3") {
-              // Tarkista levy logic
-              this.echo("Levyt kunnossa.");
-            } else {
-              this.error("Invalid option. Please try again.");
-            }
-          }, {
-            prompt: "Valitse toiminto (1, 2 tai 3): "
-          });
+        }
     }
 },{
     greetings: 'SYSTEM CONTROL\nhelp -komennolla lisäohjeita.\nvihje -komennolla vinkki.\nKirjoita komento ja paina Enter.\nOlet organisaation tietoturvavastaava.\nOrganisaation tietoverkossa on havaittu epäilyttävää toimintaa. Tehtävänäsi on yhdistää tietoverkkoon ja ratkaista ongelmatilanne.',

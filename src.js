@@ -52,7 +52,10 @@ $('body').terminal({
             this.echo("HOME:\nKorjausohje\nEmail\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
         }
         if (hackcheck == true && fix == true){
-            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nSecuritySetup\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")
+        }
+        if(hackcheck == true && fix == true && new_msg == true){
+            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\n(Uusi) SecuritySetup\nHackCheckPro\nFileChecker\n")
         }
     }, 
     cat: function(what) {
@@ -332,7 +335,7 @@ $('body').terminal({
                             });
                             // Display "Message Received" after 10 seconds
                             this.echo("Email: Uusi viesti saapunut. Lähettäjä: Pomo. Avataan viesti....\n");
-                            this.echo("From: Pomo\nTo: Tietoturvavastaava\nViesti: Loistavaa työtä! SecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n")
+                            this.echo("From: Pomo\nTo: Tietoturvavastaava\nViesti: Loistavaa työtä!\nLaitoin järjestelmääsi uuden ohjelman.\nSecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n")
                             new_msg = true;
                           }.bind(this), 7000);
                     this.pop();
@@ -386,7 +389,7 @@ $('body').terminal({
           this.echo("3. Tarkista levy");
 
           this.push(function(command) {
-            if (command === "1" && new_msg==true) {
+            if (command === "1") {
               this.echo("=== Avoimet Portit ===");
               for (var port in openPorts) {
                 this.echo(port + ": " + (openPorts[port] ? "ON" : "OFF"));

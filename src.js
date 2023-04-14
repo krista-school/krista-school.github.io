@@ -103,7 +103,7 @@ $('body').terminal({
                 default:
                     break;
             }
-            self.pop(); // Pop the prompt from the terminal stack after input is processed
+            self.pop();
             checkSelection();
         }, {
             prompt: 'Salasana: '
@@ -124,7 +124,7 @@ $('body').terminal({
                 default:
                     break;
             }
-            self.pop(); // Pop the prompt from the terminal stack after input is processed
+            self.pop();
         }, {
             prompt: 'Subnet: '
         });
@@ -144,8 +144,7 @@ $('body').terminal({
                 default:
                     break;
             }
-            self.pop(); // Pop the prompt from the terminal stack after input is processed
-        }, {
+            self.pop();
             prompt: 'IP-osoite: '
         });
         this.push(function(command) {
@@ -164,7 +163,7 @@ $('body').terminal({
                 default:
                     break;
             }
-            self.pop(); // Pop the prompt from the terminal stack after input is processed
+            self.pop(); 
         }, {
             prompt: 'Verkon nimi: '
         });
@@ -219,8 +218,8 @@ $('body').terminal({
         var timeout = 0;
         var intervalId;
         var displayNextFrame = function() {
-        this.echo(frames[index], {update:true}); // Display the current frame using this.echo
-        index++; // Move to the next frame
+        this.echo(frames[index], {update:true});
+        index++;
         timeout += 1;
         if (index === frames.length) { 
             index = 0;
@@ -272,8 +271,8 @@ $('body').terminal({
             var timeout = 0;
             var intervalId;
             var displayNextFrame = function() {
-            this.echo(frames[index], {update:true}); // Display the current frame using this.echo
-            index++; // Move to the next frame
+            this.echo(frames[index], {update:true});
+            index++; //
             timeout += 1;
             if (index === frames.length) { 
                 index = 0;
@@ -315,11 +314,11 @@ $('body').terminal({
               this.echo("Uusi viesti")
               this.push(function(command) {
                 var recipient = command;
-                selection.recipient = command; // Get recipient input
+                selection.recipient = command;
                 this.pop();
                 this.push(function(command) {
                   var subject = command;
-                  selection.subject = command; // Get subject input
+                  selection.subject = command;
                   this.pop();
                   this.push(function(command) {
                     var body = command;
@@ -333,7 +332,7 @@ $('body').terminal({
                               subject: "lolh4x",
                               body: "Loistavaa työtä! SecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n"
                             });
-                            // Display "Message Received" after 10 seconds
+          
                             this.echo("Email: Uusi viesti saapunut. Lähettäjä: Pomo. Avataan viesti....\n");
                             this.echo("From: Pomo\nTo: Tietoturvavastaava\nViesti: Loistavaa työtä!\nLaitoin järjestelmääsi uuden ohjelman.\nSecuritySetup korjaa altistuneen järjestelmän.\nKäynnistä ohjelma ja estä uloslähtevä liikenne portista 3444.\n")
                             new_msg = true;
@@ -351,9 +350,9 @@ $('body').terminal({
             } else if (command === "3" || command.toLowerCase() === "inbox") {
               if (new_msg == true){
                 if (inbox.length === 0) {
-                    this.echo("0 viestiä."); // Display empty inbox message
+                    this.echo("0 viestiä.");
                   } else {
-                    // Display inbox messages
+                  
                     inbox.forEach(function(message) {
                       this.echo("Lähettäjä: " + message.recipient);
                       this.echo("Aihe: " + message.subject);
@@ -361,14 +360,14 @@ $('body').terminal({
                       this.echo("-------------------------");
                     }.bind(this));
                   }
-                  this.pop(); // Resume terminal input
+                  this.pop();
               }
-              this.pop(); // Resume terminal input
+              this.pop();
             } else if (command === "4" || command.toLowerCase() === "quit") {
-              this.echo("Poistutaan~"); // Display quitting message
-              this.resume(); // Resume terminal input
+              this.echo("Poistutaan~");
+              this.resume();
             } else {
-              this.echo("Virheellinen valinta. Valitse toiminto 1-4."); // Display error message for invalid input
+              this.echo("Virheellinen valinta. Valitse toiminto 1-4.");
               this.resume();
             }
           }, {
@@ -410,10 +409,8 @@ $('body').terminal({
               });
 
             } else if (command === "2") {
-              // Palomuuri logic
               this.echo("Palomuuri toiminnallinen.");
             } else if (command === "3") {
-              // Tarkista levy logic
               this.echo("Levyt kunnossa.");
             } else {
               this.error("Invalid option. Please try again.");

@@ -145,7 +145,7 @@ $('body').terminal({
                     break;
             }
             self.pop();
-        });
+        }, {
             prompt: 'IP-osoite: '
         });
         this.push(function(command) {

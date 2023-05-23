@@ -32,7 +32,7 @@ $('body').terminal({
         if (systemOnlineMgmt == true || systemOnlineHome == true || systemOnlineWow == true){
             this.echo("exitNetwork - Poistu nykyisestä tietoverkosta offline-tilaan\n")
         }
-        this.echo("ls - Listaa tiedostot\ncat - Näyttää tiedostoon kirjoitetun sisällön. Käyttö: cat tiedosto.txt\nclear - Tyhjentää komentohistorian\n")
+        this.echo("ls - Listaa tiedostot\ncat - Näyttää tiedostoon kirjoitetun sisällön. Käyttö: cat tiedosto.txt")
     },
     ls: function() {
         if(systemOnlineHome==false&&systemOnlineMgmt==false&&systemOnlineWow==false)
@@ -190,9 +190,6 @@ $('body').terminal({
             self.echo("SYSTEM OFFLINE - Yhteys verkkoon epäonnistui. Yritä uudelleen. \n");
         }
     }},
-    clear: function(){
-        $('body').terminal().purge();
-    },
     exitNetwork: function(){
         var self = this;
         systemOnlineHome = false;

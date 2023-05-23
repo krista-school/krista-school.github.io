@@ -46,16 +46,16 @@ $('body').terminal({
             this.echo("PELIJUTUT:\npeli_strategia_ohjeet.exe\nWorldOfWarcraft\nDiscord\n")
         }
         if (systemOnlineMgmt == true && hackcheck == false){
-            this.echo("HOME:\nKorjausohje\nEmail\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\n\nSYSTEM CONTROL TOOLS:\nEmail\nHackCheckPro\nFileChecker\n")
         }
         if (hackcheck == true && fix == false){
-            this.echo("HOME:\nKorjausohje\nEmail\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\n(Uusi) lolh4x\n\nSYSTEM CONTROL TOOLS:\nEmail\nHackCheckPro\nFileChecker\n")
         }
         if (hackcheck == true && fix == true){
-            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nHackCheckPro\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nlolh4x\n\nSYSTEM CONTROL TOOLS:\nEmail\nHackCheckPro\nFileChecker\n")
         }
         if(hackcheck == true && fix == true && new_msg == true){
-            this.echo("HOME:\nKorjausohje\nEmail\nlolh4x\n\nSYSTEM CONTROL TOOLS:\n(Uusi) SecuritySetup\nHackCheckPro\nFileChecker\n")
+            this.echo("HOME:\nKorjausohje\nlolh4x\n\nSYSTEM CONTROL TOOLS:\n(Uusi) SecuritySetup\nEmail\nHackCheckPro\nFileChecker\n")
         }
     }, 
     cat: function(what) {
